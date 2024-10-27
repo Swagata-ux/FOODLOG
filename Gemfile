@@ -1,57 +1,76 @@
+# Gemfile
 source "https://rubygems.org"
 
-# Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
+# Main Rails gem
 gem "rails", "~> 7.2.1", ">= 7.2.1.2"
-# The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
+
+# Asset pipeline for Rails
 gem "sprockets-rails"
-# Use sqlite3 as the database for Active Record
+
+# Database for Active Record (sqlite3 in development; consider using PostgreSQL in production)
 gem "sqlite3", ">= 1.4"
-# Use the Puma web server [https://github.com/puma/puma]
+
+# Puma web server
 gem "puma", ">= 5.0"
-# Use JavaScript with ESM import maps [https://github.com/rails/importmap-rails]
+
+# JavaScript with ESM import maps
 gem "importmap-rails"
-# Hotwire's SPA-like page accelerator [https://turbo.hotwired.dev]
+
+# Hotwire for SPA-like experience
 gem "turbo-rails"
-# Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
-# Build JSON APIs with ease [https://github.com/rails/jbuilder]
+
+# For building JSON APIs
 gem "jbuilder"
-# Use Redis adapter to run Action Cable in production
+
+# Uncomment if you plan to use Redis (for caching, Action Cable, etc.)
 # gem "redis", ">= 4.0.1"
 
-# Use Kredis to get higher-level data types in Redis [https://github.com/rails/kredis]
+# Uncomment if you need higher-level Redis data types with Kredis
 # gem "kredis"
 
-# Use Active Model has_secure_password [https://guides.rubyonrails.org/active_model_basics.html#securepassword]
+# Uncomment if you need secure password hashing
 # gem "bcrypt", "~> 3.1.7"
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+# Time zone data for Windows
 gem "tzinfo-data", platforms: %i[ windows jruby ]
 
-# Reduces boot times through caching; required in config/boot.rb
+# Speeds up boot time by caching; used in `config/boot.rb`
 gem "bootsnap", require: false
 
-# Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
+# Uncomment if you plan to use Active Storage variants (for image transformations)
 # gem "image_processing", "~> 1.2"
 
+# CSS preprocessing
+gem "sass-rails", "~> 6.0"
+
+# Beautifies HTML output (used in development)
+gem "htmlbeautifier"
+
+# Development and Test Environments
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  # Debugging in development
   gem "debug", platforms: %i[ mri windows ], require: "debug/prelude"
 
-  # Static analysis for security vulnerabilities [https://brakemanscanner.org/]
+  # Security analysis
   gem "brakeman", require: false
 
-  # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
+  # Ruby style enforcement
   gem "rubocop-rails-omakase", require: false
 end
 
+# Development-only Gems
 group :development do
-  # Use console on exceptions pages [https://github.com/rails/web-console]
+  # For debugging in the browser console
   gem "web-console"
+
+  # Add rufo for Ruby code formatting
+  gem "rufo"
 end
 
+# Testing-only Gems
 group :test do
-  # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
+  # For system testing with Capybara and Selenium
   gem "capybara"
   gem "selenium-webdriver"
 end
